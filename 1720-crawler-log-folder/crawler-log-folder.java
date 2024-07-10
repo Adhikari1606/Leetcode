@@ -1,7 +1,6 @@
 class Solution {
     public int minOperations(String[] logs) {
         int ctr=0;
-        Map<Integer,Integer>map=new HashMap<>();
         for(int i=0;i<logs.length;i++)
         {
             if(logs[i].equals("../"))
