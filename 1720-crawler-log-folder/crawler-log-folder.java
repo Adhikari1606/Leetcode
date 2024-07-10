@@ -9,13 +9,9 @@ class Solution {
                 ctr--;
             }
             else if(logs[i].equals("./"))
-            {
-                continue;
-            }
+            continue;
             else
-            {
-                ctr++;
-            }
+            ctr++;
         }
         return ctr;
     }
