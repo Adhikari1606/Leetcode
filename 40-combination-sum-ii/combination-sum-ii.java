@@ -1,29 +1,25 @@
+import java.util.*;
+
 class Solution {
-    private void solveRecBacktracking(int idx, int[] candidates, int target, List<List<Integer>> res, List<Integer> l) {
-        if (target < 0)
-            return;
+    public void combination(int ind, int size, int target, int[] arr, List<List<Integer>> ans, List<Integer> temp) {
         if (target == 0) {
-            res.add(new ArrayList<>(l));
+            ans.add(new ArrayList<>(temp)); 
             return;
         }
-
-        // Backtracking.....
-        for (int i = idx; i < candidates.length; i++) {
-            if (i > idx && candidates[i] == candidates[i - 1]) {
-                continue;
-            }
-
-            l.add(candidates[i]);
-            solveRecBacktracking(i + 1, candidates, target - candidates[i], res, l);
-            l.remove(l.size() - 1);
+        for (int i = ind; i < size; i++) {
+            if (i > ind && arr[i] == arr[i - 1]) continue;
+            if (arr[i] > target) break;
+            temp.add(arr[i]);
+            combination(i + 1, size, target - arr[i], arr, ans, temp);
+            temp.remove(temp.size() - 1);
         }
     }
-
+    
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        List<List<Integer>> res = new ArrayList<>();
-        Arrays.sort(candidates);
-        solveRecBacktracking(0, candidates, target, res, new ArrayList<>());
-
-        return res;
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> temp = new ArrayList<>();
+        Arrays.sort(candidates); 
+        combination(0, candidates.length, target, candidates, ans, temp);
+        return ans;
     }
 }
