@@ -7,13 +7,11 @@ class Solution {
         if (ind == size) {
             return;
         }
-        
         if (arr[ind] <= target) { 
             temp.add(arr[ind]); 
             combination(ind, size, target - arr[ind], arr, ans, temp);
             temp.remove(temp.size() - 1);
         }
-        
         combination(ind + 1, size, target, arr, ans, temp);
     }
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
