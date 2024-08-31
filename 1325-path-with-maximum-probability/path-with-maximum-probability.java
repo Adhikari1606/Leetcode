@@ -41,7 +41,6 @@ class Solution {
         for (int i = 0; i < n; i++) {
             adjList.add(new ArrayList<>());
         }
-
         for (int i = 0; i < edges.length; i++) {
             int u = edges[i][0];
             int v = edges[i][1];
