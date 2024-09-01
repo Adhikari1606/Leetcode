@@ -1,7 +1,6 @@
 class Solution {
     public int[][] construct2DArray(int[] original, int m, int n) {
-        int len=original.length;
-        if((m*n)!=len)
+        if((m*n)!=original.length)
         return new int[0][0];
         int k=0;
         int arr[][]=new int[m][n];
