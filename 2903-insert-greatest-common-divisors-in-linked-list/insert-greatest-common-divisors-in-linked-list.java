@@ -9,15 +9,16 @@
  * }
  */
 class Solution {
-    public int gcd(int a, int b) {
-    if (a == b) {
+    public int gcd(int a, int b){
+        if(a == 1 || b==1){
+            return 1;
+        }
+        while(b !=0){
+            int rem = a % b;
+            a = b;
+            b= rem;
+        }
         return a;
-    }
-    if (a > b) {
-        return gcd(a - b, b);
-    } else {
-        return gcd(a, b - a);
-    }
     }
 
     public ListNode insertGreatestCommonDivisors(ListNode head) {
