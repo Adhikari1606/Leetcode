@@ -6,8 +6,7 @@ class Solution {
         return 0;
         while(n!=0)
         {
-            int t=n;
-            if((t&1)==1)
+            if((n&1)==1)
             {
                 ctr++;
             }
@@ -15,7 +14,7 @@ class Solution {
         }
         return ctr;
     }
-    
+
     public int minBitFlips(int start, int goal) {
         int xor=start^goal;
         return noOfSetbits(xor);
