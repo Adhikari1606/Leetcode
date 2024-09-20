@@ -1,32 +1,32 @@
 class Solution {
-    public boolean isPalindrome(String s)
-    {
-        int size = s.length();
-        for (int i = 0; i < size / 2; i++)
-        {
-            char a = s.charAt(i);
-            char b = s.charAt(size - 1 - i);
-            if (a != b)
+     public boolean isPalindrome(String s, int start, int end) {
+        while (start < end) {
+            if (s.charAt(start) != s.charAt(end)) {
                 return false;
+            }
+            start++;
+            end--;
         }
         return true;
     }
 
-    public int findLongestPalindromePrefix(String s)
-    {
+    public int findLongestPalindromePrefix(String s) {
         int size = s.length();
-        for (int i = size; i > 0; i--)
-        {
-            if (isPalindrome(s.substring(0, i)))
-                return i;
+        for (int i = size - 1; i >= 0; i--) {
+            if (isPalindrome(s, 0, i)) {
+                return i + 1;
+            }
         }
         return 0;
     }
 
     public String shortestPalindrome(String s) {
-        int n = s.length();
         int palindromeEnd = findLongestPalindromePrefix(s);
-        StringBuilder toMirror = new StringBuilder(s.substring(palindromeEnd));
-        return toMirror.reverse().toString() + s;
+        StringBuilder result = new StringBuilder();
+        for (int i = s.length() - 1; i >= palindromeEnd; i--) {
+            result.append(s.charAt(i));
+        }
+        result.append(s);
+        return result.toString();
     }
 }
