@@ -6,15 +6,15 @@ class Solution {
         arr[j]=temp;
     }
     public long minimumSteps(String s) {
-        char str[]=s.toCharArray();
-        int n=str.length;
+        //char str[]=s.toCharArray();
+        int n=s.length();
     
         long ctr=0;
         int l=0;
         int r=0;
         while(r<n)
         {
-            if(str[r]=='0')
+            if(s.charAt(r)=='0')
             {
                 ctr+=r-l;
                // swap(str,l,r);
