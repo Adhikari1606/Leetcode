@@ -1,12 +1,5 @@
 class Solution {
-    public void swap(char[]arr ,int i,int j)
-    {
-        char temp=arr[i];
-        arr[i]=arr[j];
-        arr[j]=temp;
-    }
-    public long minimumSteps(String s) {
-        //char str[]=s.toCharArray();
+     public long minimumSteps(String s) {
         int n=s.length();
     
         long ctr=0;
@@ -17,7 +10,6 @@ class Solution {
             if(s.charAt(r)=='0')
             {
                 ctr+=r-l;
-               // swap(str,l,r);
                 l++;
             }
             r++;
