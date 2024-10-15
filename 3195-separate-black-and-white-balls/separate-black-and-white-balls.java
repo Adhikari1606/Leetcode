@@ -17,7 +17,7 @@ class Solution {
             if(str[r]=='0')
             {
                 ctr+=r-l;
-                swap(str,l,r);
+               // swap(str,l,r);
                 l++;
             }
             r++;
