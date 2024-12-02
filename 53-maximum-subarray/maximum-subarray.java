@@ -2,7 +2,6 @@ class Solution {
     public int maxSubArray(int[] nums) {
         int max=Integer.MIN_VALUE;
         int current=0;
-
         for(int x:nums)
         {
             current+=x;
@@ -15,7 +14,6 @@ class Solution {
                 current=0;
             }
         }
-
         return max;
     }
 }
